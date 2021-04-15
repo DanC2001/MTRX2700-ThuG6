@@ -61,3 +61,12 @@ tasks deligated to people with an assigned due date
    * Make sure no trout or children are present
    * Use both hands
    * Always have a towel nearby in case of messes
+
+
+## Paragrahs
+when writing in multiple lines you need to have a blank line like this
+
+tada new paragragh
+
+however if you need a newline add two spaces at teh end of the lines  
+tada
