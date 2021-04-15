@@ -30,14 +30,14 @@ tasks deligated to people with an assigned due date
 4. Drop the salmon into the egg-milk bowl
 
 * Tintin
- * A reporter
- * Has poofy orange hair
- * Friends with the world's most awesome dog
+   * A reporter
+   * Has poofy orange hair
+   * Friends with the world's most awesome dog
 * Haddock
- * A sea captain
- * Has a fantastic beard
- * Loves whiskey
-   * Possibly also scotch?
+   * A sea captain
+   * Has a fantastic beard
+   * Loves whiskey
+       * Possibly also scotch?
    
    
 1. Crack three eggs over a bowl.
@@ -61,3 +61,12 @@ tasks deligated to people with an assigned due date
    * Make sure no trout or children are present
    * Use both hands
    * Always have a towel nearby in case of messes
+
+
+## Paragrahs
+when writing in multiple lines you need to have a blank line like this
+
+tada new paragragh
+
+however if you need a newline add two spaces at teh end of the lines  
+tada
