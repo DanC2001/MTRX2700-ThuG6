@@ -89,10 +89,16 @@ And now back to [the first link][another place].
    * Always have a towel nearby in case of messes
 
 
-## Paragrahs
+### Paragrahs
 when writing in multiple lines you need to have a blank line like this
 
 tada new paragragh
 
 however if you need a newline add two spaces at teh end of the lines  
 tada
+
+### Blockquotes
+
+I read this interesting quote the other day:
+
+>"Her eyes had called him and his soul had leaped at the call. To live, to err, to fall, to triumph, to recreate life out of life!"
