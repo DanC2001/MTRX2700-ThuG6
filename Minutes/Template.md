@@ -30,14 +30,14 @@ tasks deligated to people with an assigned due date
 4. Drop the salmon into the egg-milk bowl
 
 * Tintin
- * A reporter
- * Has poofy orange hair
- * Friends with the world's most awesome dog
+   * A reporter
+   * Has poofy orange hair
+   * Friends with the world's most awesome dog
 * Haddock
- * A sea captain
- * Has a fantastic beard
- * Loves whiskey
-   * Possibly also scotch?
+   * A sea captain
+   * Has a fantastic beard
+   * Loves whiskey
+       * Possibly also scotch?
    
    
 1. Crack three eggs over a bowl.
