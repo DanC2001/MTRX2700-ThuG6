@@ -17,6 +17,32 @@ tasks deligated to people with an assigned due date
 
 
 ## Tips
+### Italics
+_this is italic_
+
+### Bold
+**this is bold**
+
+## Links
+[search for it inline](www.google.com)
+
+[You're **really, really** going to want to see this.](www.dailykitten.com)
+
+Here's [a link to something else][another place].  
+Here's [yet another link][another-link].  
+And now back to [the first link][another place].  
+
+[another place]: www.github.com
+[another-link]: www.google.com
+  
+### Images
+
+[A pretty tiger in a link](https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg)
+
+![A pretty tiger](https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg)
+
+[from our repo](https://github.com/DanC2001/MTRX2700-ThuG6/blob/main/Minutes/Images/testimg.jpg)
+![from our repo](https://github.com/DanC2001/MTRX2700-ThuG6/blob/main/Minutes/Images/testimg.jpg)
 
 ### Bullet points
 * Milk
