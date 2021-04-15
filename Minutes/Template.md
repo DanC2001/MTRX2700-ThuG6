@@ -23,7 +23,7 @@ _this is italic_
 ### Bold
 **this is bold**
 
-## Links
+### Links
 [search for it inline](www.google.com)
 
 [You're **really, really** going to want to see this.](www.dailykitten.com)
