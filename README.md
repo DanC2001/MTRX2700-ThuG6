@@ -34,8 +34,9 @@ was written in C and implemented on the HCS12 Dragonboard.
 - Type in prescaller you wish to use (0x00-0x77 - NOTE: prescalar will determine precision and sensitivity lower is better) 
 - Type in testing values you wish to use (NOTE: these must be of form double as they are typecast to lower forms in the function).
 
-### Serial module
+## Serial module
 
+###
 
 ## Speaker module
 
