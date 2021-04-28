@@ -57,6 +57,26 @@ was written in C and implemented on the HCS12 Dragonboard.
   where the #define is
 - To play the speaker, the speaker module out of the three exercises must also be selected.
 
+* Testing plan *
+1. Single letter
+	- A
+	- B
+2. String of letters
+	- ABC
+	- ABCDEABCDE
+3. Invalid letter
+	- G
+	- Z
+4. Invalid strings
+	- abc
+	- EFGH
+5. Invalid charcters
+	- 123
+	- !@#
+6. Blank string
+	- ""
+
+
 
 
 
