@@ -36,7 +36,19 @@ was written in C and implemented on the HCS12 Dragonboard.
 
 ## Serial module
 
-###
+### Functions
+1. *main*
+	- Initialises serial registers and loops inifinitely waiting for an interrupt
+	- *Inputs:* void
+	- *Outputs:* void
+2. *Interrupt*
+	- When an interrupt occurs, function either receive or transmit to the serial
+	- *Inputs:* void
+	- *Outputs:* void
+	- 
+### User Instructions
+- Type in anything you would like into the terminal and this will be stored in the buffer variable (receiver) 
+- Type in anything you would like in the input string variable in the file and this will be written onto the serial (transmitter)
 
 ## Speaker module
 
