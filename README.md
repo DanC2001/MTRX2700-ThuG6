@@ -1,20 +1,20 @@
-*** MTRX2700-ThuG6 ***
+*MTRX2700-ThuG6*
 MTRX 2700 S1 2021 Lab 2 Thursday 9am Group 6 Repo
 
-** Group Members **
+**Group Members**
 Daniel Cook : 490394414
 Andy Scott : 500443844
 James Cal: 480368784
 
 
-** Summary **
+**Summary**
 This project is broken into three main exercises. The first module times the result of performing a variety of math operations
 using different data types and sends the information in a table format to serial. The second module implements the serial
 transmitting and receiving using interrupts. The third module plays a tune inputted by the user on the speaker. Each exercise
 was written in C and implemented on the HCS12 Dragonboard.
 
-** Timer module **
-
+**Timer module**
+***Functions***
 
 ** Serial module **
 
