@@ -23,7 +23,7 @@ SCI0CR2 = 0xAC; // Enable transmitter, receiver, receiver full interrupt enable 
 }
 
 
-interrupt 21 void SC1_ISR(void){
+/*interrupt 21 void SC1_ISR(void){
   PORTB=SCI1SR1;     // debugging info
   if (SCI1SR1 & 0x20) {// Check the RDRF. If high, then store character 
      
@@ -35,10 +35,10 @@ interrupt 21 void SC1_ISR(void){
     PrintChars(counter);
     counter = 0;
   }
-}
+} 
 
 void PrintChars(int counter){
-
+   int i;
    for(i=0;i<counter;i++){
       if (i == 0){  // If first pass
          SCI1DRL = '\n'; // Print newline character
@@ -62,6 +62,6 @@ void storeChar(int counter){
 
     buffer[counter]= SCI1DRL;
    
-}
+}*/
 
 

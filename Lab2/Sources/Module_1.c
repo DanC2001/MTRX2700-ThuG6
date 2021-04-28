@@ -3,17 +3,21 @@
 // Include required header files
 // WARNING: Remember to alter required file depending if in simulation or hardware!
 
+unsigned diff1, diff2, time1, time2;
+volatile double timetotal;
+unsigned overflow = 0;
+int prescalar = 0x01;
 
-void main(void) {
-  /* put your own code here */
-  
-   // Use flag to select with exercise to do
-
-	EnableInterrupts;
-
-
-  for(;;) {
-    _FEED_COP(); /* feeds the dog */
-  } /* loop forever */
-  /* please make sure that you never leave main */
+void module1(void) {
+   int operator = 3; // 0=+, 1=-, 2=*, 3=/, 4=sin(a), 5=cos(a), 6=sqrt(a) 
+   double test  = 4.2;
+   double test2 = 5.5;
+   double result;
+   	
+   enableTimer(0x90, prescalar);	
+   
+   BenchmarkTable(test, test2, prescalar);
+   
+   while(1){
+   }
 }

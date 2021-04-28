@@ -5,6 +5,7 @@
 #include "Module_3.h"
 
 
+<<<<<<< HEAD
 // This module runs exercise 3 which plays a tune using the speaker
 void play_tune(char *input_string, int note_duration){
 
@@ -105,3 +106,5 @@ void notes_to_period(int *output_array, char *input_string, int length){
 
 
 
+=======
+>>>>>>> 904abb6bc4ada818563fdaf663548a853320374a
