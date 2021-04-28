@@ -16,6 +16,11 @@ void module1(void) {
    	
    enableTimer(0x90, prescalar);	
    
+   time1 = TCNT;
+   result = test * test2;
+   time2 = TCNT;
+   
+   
    BenchmarkTable(test, test2, prescalar);
    
    while(1){

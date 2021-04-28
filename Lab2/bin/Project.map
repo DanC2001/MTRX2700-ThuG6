@@ -34,8 +34,8 @@ Entry point: 0xC029 (_Startup)
 _startupData is allocated at 0xC031 and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x1100     4
-  _Copy    *toCopyDownBeg 0xD391
+  _Range   pZeroOut       0x1100     8
+  _Copy    *toCopyDownBeg 0xD3B1
 } _startupData;
 
 *********************************************************************************************
@@ -45,8 +45,8 @@ Section Name                    Size  Type     From       To       Segment
 .init                             49     R     0xC000     0xC030   ROM_C000
 .startData                        10     R     0xC031     0xC03A   ROM_C000
 .rodata                           16     R     0xC03B     0xC04A   ROM_C000
-.text                           2813     R     0xC04B     0xCB47   ROM_C000
-.copy                              7     R     0xD391     0xD397   ROM_C000
+.text                           2845     R     0xC04B     0xCB67   ROM_C000
+.copy                              7     R     0xD3B1     0xD3B7   ROM_C000
 .stack                           256   R/W     0x1000     0x10FF   RAM
 .data                              2   R/W     0x1100     0x1101   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
@@ -390,13 +390,13 @@ Section Name                    Size  Type     From       To       Segment
 .abs_section_17e                   2   N/I      0x17E      0x17F   .absSeg338
 .abs_section_2ae                   2   N/I      0x2AE      0x2AF   .absSeg339
 .abs_section_2be                   2   N/I      0x2BE      0x2BF   .absSeg340
-RUNTIME                         2121     R     0xCB48     0xD390   ROM_C000
-.common                            2   R/W     0x1102     0x1103   RAM
+RUNTIME                         2121     R     0xCB68     0xD3B0   ROM_C000
+.common                            6   R/W     0x1102     0x1107   RAM
 .vectSeg341_vect                   2     R     0xFFFE     0xFFFF   .vectSeg341
 
 Summary of section sizes per section type:
-READ_ONLY (R):        139A (dec:     5018)
-READ_WRITE (R/W):      104 (dec:      260)
+READ_ONLY (R):        13BA (dec:     5050)
+READ_WRITE (R/W):      108 (dec:      264)
 NO_INIT (N/I):         190 (dec:      400)
 
 *********************************************************************************************
@@ -697,7 +697,7 @@ MODULE:                 -- mc9s12dg256.c.o --
      _PORTAB                                      0       2       2       0   .abs_section_0
      _DDRAB                                       2       2       2       0   .abs_section_2
      _PARTID                                     1A       2       2       0   .abs_section_1a
-     _TCNT                                       44       2       2       3   .abs_section_44
+     _TCNT                                       44       2       2       5   .abs_section_44
      _TC0                                        50       2       2       0   .abs_section_50
      _TC1                                        52       2       2       0   .abs_section_52
      _TC2                                        54       2       2       0   .abs_section_54
@@ -755,7 +755,7 @@ MODULE:                 -- mc9s12dg256.c.o --
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
 MODULE:                 -- main.c.o --
 - PROCEDURES:
-     main                                      C04B       C      12       1   .text       
+     main                                      C04B       E      14       1   .text       
 - VARIABLES:
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
@@ -767,100 +767,102 @@ MODULE:                 -- Start12.c.o --
      __SEG_END_SSTACK                          1100       0       0       1               
 MODULE:                 -- MATH.C.o (ansisf.lib) --
 - PROCEDURES:
-     fabs                                      C057      2C      44       2   .text       
-     is_special                                C083      59      89       3   .text       
-     sincos                                    C0DC     3AE     942      28   .text       
-     sin                                       C48A      C1     193       2   .text       
-     cos                                       C54B      A9     169       2   .text       
-     sqrt_r                                    C5F4     1F0     496      13   .text       
-     sqrt                                      C7E4      A0     160       2   .text       
+     fabs                                      C059      2C      44       2   .text       
+     is_special                                C085      59      89       3   .text       
+     sincos                                    C0DE     3AE     942      28   .text       
+     sin                                       C48C      C1     193       2   .text       
+     cos                                       C54D      A9     169       2   .text       
+     sqrt_r                                    C5F6     1F0     496      13   .text       
+     sqrt                                      C7E6      A0     160       2   .text       
 - VARIABLES:
      infinity                                  C03B       8       8       8   .rodata     
      nan_union                                 C043       8       8       4   .rodata     
 MODULE:                 -- DADD.C.o (ansisf.lib) --
 - PROCEDURES:
-     D_ADDKL                                   CB48      BC     188       1   RUNTIME     
-     _DADD                                     CC04      11      17      16   RUNTIME     
-     _DSUB                                     CC15      19      25       1   RUNTIME     
-     _DINC                                     CC2E      35      53       2   RUNTIME     
-     _DNEG                                     CC63      17      23       2   RUNTIME     
+     D_ADDKL                                   CB68      BC     188       1   RUNTIME     
+     _DADD                                     CC24      11      17      16   RUNTIME     
+     _DSUB                                     CC35      19      25       1   RUNTIME     
+     _DINC                                     CC4E      35      53       2   RUNTIME     
+     _DNEG                                     CC83      17      23       2   RUNTIME     
 - VARIABLES:
 MODULE:                 -- DANSI.C.o (ansisf.lib) --
 - PROCEDURES:
-     D_MODF                                    CC7A      5D      93       1   RUNTIME     
-     D_FREXP                                   CCD7      20      32       1   RUNTIME     
-     D_LDEXP                                   CCF7      18      24       1   RUNTIME     
-     modf                                      CD0F      1F      31       1   RUNTIME     
-     frexp                                     CD2E      1F      31       1   RUNTIME     
-     RetErrDom                                 CD4D      1F      31       1   RUNTIME     
-     ldexp                                     CD6C      27      39       3   RUNTIME     
+     D_MODF                                    CC9A      5D      93       1   RUNTIME     
+     D_FREXP                                   CCF7      20      32       1   RUNTIME     
+     D_LDEXP                                   CD17      18      24       1   RUNTIME     
+     modf                                      CD2F      1F      31       1   RUNTIME     
+     frexp                                     CD4E      1F      31       1   RUNTIME     
+     RetErrDom                                 CD6D      1F      31       1   RUNTIME     
+     ldexp                                     CD8C      27      39       3   RUNTIME     
 - VARIABLES:
 MODULE:                 -- DCMP.C.o (ansisf.lib) --
 - PROCEDURES:
-     _DCMP                                     CD93      30      48       3   RUNTIME     
+     _DCMP                                     CDB3      30      48       3   RUNTIME     
 - VARIABLES:
 MODULE:                 -- DCONV.C.o (ansisf.lib) --
 - PROCEDURES:
-     D_TOLONGK                                 CDC3      33      51       1   RUNTIME     
-     D_FRLONGK                                 CDF6      19      25       2   RUNTIME     
-     _DSFLOAT                                  CE0F      14      20       8   RUNTIME     
-     _DUFLOAT                                  CE23      14      20       1   RUNTIME     
-     _DSTRUNC                                  CE37      19      25       3   RUNTIME     
-     _DUTRUNC                                  CE50       3       3       1   RUNTIME     
-     D_PSHK_UNARY                              CE53      1E      30       2   RUNTIME     
-     D_CLRK_UNARY                              CE71       D      13       2   RUNTIME     
-     D_MAXK_UNARY                              CE7E       A      10       1   RUNTIME     
-     D_NORMK_UNARY                             CE88      5C      92       1   RUNTIME     
+     D_TOLONGK                                 CDE3      33      51       1   RUNTIME     
+     D_FRLONGK                                 CE16      19      25       2   RUNTIME     
+     _DSFLOAT                                  CE2F      14      20       8   RUNTIME     
+     _DUFLOAT                                  CE43      14      20       1   RUNTIME     
+     _DSTRUNC                                  CE57      19      25       3   RUNTIME     
+     _DUTRUNC                                  CE70       3       3       1   RUNTIME     
+     D_PSHK_UNARY                              CE73      1E      30       2   RUNTIME     
+     D_CLRK_UNARY                              CE91       D      13       2   RUNTIME     
+     D_MAXK_UNARY                              CE9E       A      10       1   RUNTIME     
+     D_NORMK_UNARY                             CEA8      5C      92       1   RUNTIME     
 - VARIABLES:
 MODULE:                 -- DMUL.C.o (ansisf.lib) --
 - PROCEDURES:
-     D_DIVKL                                   CEE4      F5     245       2   RUNTIME     
-     D_MULKL                                   CFD9      90     144       1   RUNTIME     
-     _DMUL                                     D069      11      17      11   RUNTIME     
-     _DDIV                                     D07A      11      17       4   RUNTIME     
+     D_DIVKL                                   CF04      F5     245       2   RUNTIME     
+     D_MULKL                                   CFF9      90     144       1   RUNTIME     
+     _DMUL                                     D089      11      17      12   RUNTIME     
+     _DDIV                                     D09A      11      17       4   RUNTIME     
 - VARIABLES:
 MODULE:                 -- DREGS.C.o (ansisf.lib) --
 - PROCEDURES:
-     D_PULK                                    D08B      29      41       6   RUNTIME     
-     D_PULL                                    D0B4      25      37       4   RUNTIME     
-     D_PSHK                                    D0D9      23      35       3   RUNTIME     
-     D_STAL                                    D0FC      2A      42       4   RUNTIME     
-     D_TKL                                     D126      1C      28       2   RUNTIME     
-     D_XGKL                                    D142      39      57       2   RUNTIME     
-     D_CLRK                                    D17B      13      19       4   RUNTIME     
-     D_CLRL                                    D18E      10      16       1   RUNTIME     
-     D_MAXK                                    D19E       A      10       2   RUNTIME     
-     D_NORMK                                   D1A8      8F     143       6   RUNTIME     
+     D_PULK                                    D0AB      29      41       6   RUNTIME     
+     D_PULL                                    D0D4      25      37       4   RUNTIME     
+     D_PSHK                                    D0F9      23      35       3   RUNTIME     
+     D_STAL                                    D11C      2A      42       4   RUNTIME     
+     D_TKL                                     D146      1C      28       2   RUNTIME     
+     D_XGKL                                    D162      39      57       2   RUNTIME     
+     D_CLRK                                    D19B      13      19       4   RUNTIME     
+     D_CLRL                                    D1AE      10      16       1   RUNTIME     
+     D_MAXK                                    D1BE       A      10       2   RUNTIME     
+     D_NORMK                                   D1C8      8F     143       6   RUNTIME     
 - VARIABLES:
 MODULE:                 -- rtshc12.c.o (ansisf.lib) --
 - PROCEDURES:
-     _LCMP                                     D237      19      25       1   RUNTIME     
-     _lDivMod                                  D250      BE     190       2   RUNTIME     
-     _NEG_P                                    D30E       F      15       5   RUNTIME     
-     _LDIVS                                    D31D      35      53       1   RUNTIME     
-     _ILSEXT                                   D352       7       7       6   RUNTIME     
-     _COPY                                     D359       8       8      12   RUNTIME     
-     _CASE_CHECKED_BYTE                        D361      14      20       5   RUNTIME     
+     _LCMP                                     D257      19      25       1   RUNTIME     
+     _lDivMod                                  D270      BE     190       2   RUNTIME     
+     _NEG_P                                    D32E       F      15       5   RUNTIME     
+     _LDIVS                                    D33D      35      53       1   RUNTIME     
+     _ILSEXT                                   D372       7       7       6   RUNTIME     
+     _COPY                                     D379       8       8      12   RUNTIME     
+     _CASE_CHECKED_BYTE                        D381      14      20       5   RUNTIME     
 - VARIABLES:
      errno                                     1102       2       2       2   .common     
 MODULE:                 -- VREGS.C.o (ansisf.lib) --
 - PROCEDURES:
-     L_NEGK                                    D375       7       7       2   RUNTIME     
-     L_PSHK                                    D37C       8       8       1   RUNTIME     
-     UL_PULK                                   D384       3       3       1   RUNTIME     
-     SL_PULK                                   D387       A      10       1   RUNTIME     
+     L_NEGK                                    D395       7       7       2   RUNTIME     
+     L_PSHK                                    D39C       8       8       1   RUNTIME     
+     UL_PULK                                   D3A4       3       3       1   RUNTIME     
+     SL_PULK                                   D3A7       A      10       1   RUNTIME     
 - VARIABLES:
 MODULE:                 -- Module_1.c.o --
 - PROCEDURES:
-     module1                                   C884      46      70       1   .text       
+     module1                                   C886      64     100       1   .text       
 - VARIABLES:
      prescalar                                 1100       2       2       2   .data       
+     time1                                     1104       2       2       1   .common     
+     time2                                     1106       2       2       1   .common     
 MODULE:                 -- Functions.c.o --
 - PROCEDURES:
-     enableTimer                               C8CA      12      18       1   .text       
-     BenchmarkII                               C8DC      E4     228       6   .text       
-     convertTimerToTime                        C9C0     13A     314       9   .text       
-     BenchmarkTable                            CAFA      4E      78       1   .text       
+     enableTimer                               C8EA      12      18       1   .text       
+     BenchmarkII                               C8FC      E4     228       6   .text       
+     convertTimerToTime                        C9E0     13A     314       9   .text       
+     BenchmarkTable                            CB1A      4E      78       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
@@ -868,7 +870,7 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   mc9s12dg256.c.o                            400      0      0
-  main.c.o                                     0     12      0
+  main.c.o                                     0     14      0
   Start12.c.o                                  0     49      0
   MATH.C.o (ansisf.lib)                        0   2093     16
   DADD.C.o (ansisf.lib)                        0    306      0
@@ -879,7 +881,7 @@ MODULE STATISTIC
   DREGS.C.o (ansisf.lib)                       0    428      0
   rtshc12.c.o (ansisf.lib)                     2    318      0
   VREGS.C.o (ansisf.lib)                       0     28      0
-  Module_1.c.o                                 2     70      0
+  Module_1.c.o                                 6    100      0
   Functions.c.o                                0    638      0
   other                                      256     12      7
 
@@ -1585,7 +1587,7 @@ SECTION: "RUNTIME"
   _LCMP _lDivMod _NEG_P _LDIVS _ILSEXT _COPY _CASE_CHECKED_BYTE L_NEGK L_PSHK 
   UL_PULK SL_PULK 
 SECTION: ".common"
-  errno 
+  errno time1 time2 
 
 *********************************************************************************************
 OBJECT LIST SORTED BY ADDRESS
@@ -1635,7 +1637,7 @@ OBJECT LIST SORTED BY ADDRESS
      _CFORC                                      41       1       1       0   .abs_section_41
      _OC7M                                       42       1       1       0   .abs_section_42
      _OC7D                                       43       1       1       0   .abs_section_43
-     _TCNT                                       44       2       2       3   .abs_section_44
+     _TCNT                                       44       2       2       5   .abs_section_44
      _TSCR1                                      46       1       1       1   .abs_section_46
      _TTOV                                       47       1       1       0   .abs_section_47
      _TCTL1                                      48       1       1       0   .abs_section_48
@@ -1934,71 +1936,73 @@ OBJECT LIST SORTED BY ADDRESS
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
      prescalar                                 1100       2       2       2   .data       
      errno                                     1102       2       2       2   .common     
+     time1                                     1104       2       2       1   .common     
+     time2                                     1106       2       2       1   .common     
      Init                                      C000      29      41       1   .init       
      _Startup                                  C029       8       8       0   .init       
      infinity                                  C03B       8       8       8   .rodata     
      nan_union                                 C043       8       8       4   .rodata     
-     main                                      C04B       C      12       1   .text       
-     fabs                                      C057      2C      44       2   .text       
-     is_special                                C083      59      89       3   .text       
-     sincos                                    C0DC     3AE     942      28   .text       
-     sin                                       C48A      C1     193       2   .text       
-     cos                                       C54B      A9     169       2   .text       
-     sqrt_r                                    C5F4     1F0     496      13   .text       
-     sqrt                                      C7E4      A0     160       2   .text       
-     module1                                   C884      46      70       1   .text       
-     enableTimer                               C8CA      12      18       1   .text       
-     BenchmarkII                               C8DC      E4     228       6   .text       
-     convertTimerToTime                        C9C0     13A     314       9   .text       
-     BenchmarkTable                            CAFA      4E      78       1   .text       
-     D_ADDKL                                   CB48      BC     188       1   RUNTIME     
-     _DADD                                     CC04      11      17      16   RUNTIME     
-     _DSUB                                     CC15      19      25       1   RUNTIME     
-     _DINC                                     CC2E      35      53       2   RUNTIME     
-     _DNEG                                     CC63      17      23       2   RUNTIME     
-     D_MODF                                    CC7A      5D      93       1   RUNTIME     
-     D_FREXP                                   CCD7      20      32       1   RUNTIME     
-     D_LDEXP                                   CCF7      18      24       1   RUNTIME     
-     modf                                      CD0F      1F      31       1   RUNTIME     
-     frexp                                     CD2E      1F      31       1   RUNTIME     
-     RetErrDom                                 CD4D      1F      31       1   RUNTIME     
-     ldexp                                     CD6C      27      39       3   RUNTIME     
-     _DCMP                                     CD93      30      48       3   RUNTIME     
-     D_TOLONGK                                 CDC3      33      51       1   RUNTIME     
-     D_FRLONGK                                 CDF6      19      25       2   RUNTIME     
-     _DSFLOAT                                  CE0F      14      20       8   RUNTIME     
-     _DUFLOAT                                  CE23      14      20       1   RUNTIME     
-     _DSTRUNC                                  CE37      19      25       3   RUNTIME     
-     _DUTRUNC                                  CE50       3       3       1   RUNTIME     
-     D_PSHK_UNARY                              CE53      1E      30       2   RUNTIME     
-     D_CLRK_UNARY                              CE71       D      13       2   RUNTIME     
-     D_MAXK_UNARY                              CE7E       A      10       1   RUNTIME     
-     D_NORMK_UNARY                             CE88      5C      92       1   RUNTIME     
-     D_DIVKL                                   CEE4      F5     245       2   RUNTIME     
-     D_MULKL                                   CFD9      90     144       1   RUNTIME     
-     _DMUL                                     D069      11      17      11   RUNTIME     
-     _DDIV                                     D07A      11      17       4   RUNTIME     
-     D_PULK                                    D08B      29      41       6   RUNTIME     
-     D_PULL                                    D0B4      25      37       4   RUNTIME     
-     D_PSHK                                    D0D9      23      35       3   RUNTIME     
-     D_STAL                                    D0FC      2A      42       4   RUNTIME     
-     D_TKL                                     D126      1C      28       2   RUNTIME     
-     D_XGKL                                    D142      39      57       2   RUNTIME     
-     D_CLRK                                    D17B      13      19       4   RUNTIME     
-     D_CLRL                                    D18E      10      16       1   RUNTIME     
-     D_MAXK                                    D19E       A      10       2   RUNTIME     
-     D_NORMK                                   D1A8      8F     143       6   RUNTIME     
-     _LCMP                                     D237      19      25       1   RUNTIME     
-     _lDivMod                                  D250      BE     190       2   RUNTIME     
-     _NEG_P                                    D30E       F      15       5   RUNTIME     
-     _LDIVS                                    D31D      35      53       1   RUNTIME     
-     _ILSEXT                                   D352       7       7       6   RUNTIME     
-     _COPY                                     D359       8       8      12   RUNTIME     
-     _CASE_CHECKED_BYTE                        D361      14      20       5   RUNTIME     
-     L_NEGK                                    D375       7       7       2   RUNTIME     
-     L_PSHK                                    D37C       8       8       1   RUNTIME     
-     UL_PULK                                   D384       3       3       1   RUNTIME     
-     SL_PULK                                   D387       A      10       1   RUNTIME     
+     main                                      C04B       E      14       1   .text       
+     fabs                                      C059      2C      44       2   .text       
+     is_special                                C085      59      89       3   .text       
+     sincos                                    C0DE     3AE     942      28   .text       
+     sin                                       C48C      C1     193       2   .text       
+     cos                                       C54D      A9     169       2   .text       
+     sqrt_r                                    C5F6     1F0     496      13   .text       
+     sqrt                                      C7E6      A0     160       2   .text       
+     module1                                   C886      64     100       1   .text       
+     enableTimer                               C8EA      12      18       1   .text       
+     BenchmarkII                               C8FC      E4     228       6   .text       
+     convertTimerToTime                        C9E0     13A     314       9   .text       
+     BenchmarkTable                            CB1A      4E      78       1   .text       
+     D_ADDKL                                   CB68      BC     188       1   RUNTIME     
+     _DADD                                     CC24      11      17      16   RUNTIME     
+     _DSUB                                     CC35      19      25       1   RUNTIME     
+     _DINC                                     CC4E      35      53       2   RUNTIME     
+     _DNEG                                     CC83      17      23       2   RUNTIME     
+     D_MODF                                    CC9A      5D      93       1   RUNTIME     
+     D_FREXP                                   CCF7      20      32       1   RUNTIME     
+     D_LDEXP                                   CD17      18      24       1   RUNTIME     
+     modf                                      CD2F      1F      31       1   RUNTIME     
+     frexp                                     CD4E      1F      31       1   RUNTIME     
+     RetErrDom                                 CD6D      1F      31       1   RUNTIME     
+     ldexp                                     CD8C      27      39       3   RUNTIME     
+     _DCMP                                     CDB3      30      48       3   RUNTIME     
+     D_TOLONGK                                 CDE3      33      51       1   RUNTIME     
+     D_FRLONGK                                 CE16      19      25       2   RUNTIME     
+     _DSFLOAT                                  CE2F      14      20       8   RUNTIME     
+     _DUFLOAT                                  CE43      14      20       1   RUNTIME     
+     _DSTRUNC                                  CE57      19      25       3   RUNTIME     
+     _DUTRUNC                                  CE70       3       3       1   RUNTIME     
+     D_PSHK_UNARY                              CE73      1E      30       2   RUNTIME     
+     D_CLRK_UNARY                              CE91       D      13       2   RUNTIME     
+     D_MAXK_UNARY                              CE9E       A      10       1   RUNTIME     
+     D_NORMK_UNARY                             CEA8      5C      92       1   RUNTIME     
+     D_DIVKL                                   CF04      F5     245       2   RUNTIME     
+     D_MULKL                                   CFF9      90     144       1   RUNTIME     
+     _DMUL                                     D089      11      17      12   RUNTIME     
+     _DDIV                                     D09A      11      17       4   RUNTIME     
+     D_PULK                                    D0AB      29      41       6   RUNTIME     
+     D_PULL                                    D0D4      25      37       4   RUNTIME     
+     D_PSHK                                    D0F9      23      35       3   RUNTIME     
+     D_STAL                                    D11C      2A      42       4   RUNTIME     
+     D_TKL                                     D146      1C      28       2   RUNTIME     
+     D_XGKL                                    D162      39      57       2   RUNTIME     
+     D_CLRK                                    D19B      13      19       4   RUNTIME     
+     D_CLRL                                    D1AE      10      16       1   RUNTIME     
+     D_MAXK                                    D1BE       A      10       2   RUNTIME     
+     D_NORMK                                   D1C8      8F     143       6   RUNTIME     
+     _LCMP                                     D257      19      25       1   RUNTIME     
+     _lDivMod                                  D270      BE     190       2   RUNTIME     
+     _NEG_P                                    D32E       F      15       5   RUNTIME     
+     _LDIVS                                    D33D      35      53       1   RUNTIME     
+     _ILSEXT                                   D372       7       7       6   RUNTIME     
+     _COPY                                     D379       8       8      12   RUNTIME     
+     _CASE_CHECKED_BYTE                        D381      14      20       5   RUNTIME     
+     L_NEGK                                    D395       7       7       2   RUNTIME     
+     L_PSHK                                    D39C       8       8       1   RUNTIME     
+     UL_PULK                                   D3A4       3       3       1   RUNTIME     
+     SL_PULK                                   D3A7       A      10       1   RUNTIME     
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -2025,18 +2029,18 @@ MATH.C.o (ansisf.lib):
 rtshc12.c.o (ansisf.lib):
   _PowOfTwo_8 _PowOfTwo_16 _PowOfTwo_32 
 Module_1.c.o:
-  overflow diff1 diff2 time1 time2 timetotal 
+  overflow diff1 diff2 timetotal 
 
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xD391 ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xD3B1 ---- SIZE       4 ---
 Filling bytes inserted
  00011101
-------- ROM-ADDRESS: 0xD395 ---- RAM-ADDRESS: 0x1101 ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xD3B5 ---- RAM-ADDRESS: 0x1101 ---- SIZE       1 ---
 Name of initialized Object : prescalar:1
  01
-------- ROM-ADDRESS: 0xD396 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xD3B6 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -2057,7 +2061,8 @@ sqrt_r                    USES sqrt_r frexp _DMUL _DADD _DDIV ldexp _COPY
                                 _ILSEXT 
 sqrt                      USES sqrt is_special _CASE_CHECKED_BYTE infinity 
                                 sqrt_r errno nan_union _COPY 
-module1                   USES prescalar enableTimer BenchmarkTable _COPY 
+module1                   USES prescalar enableTimer _TCNT time1 _DMUL time2 
+                                BenchmarkTable _COPY 
 enableTimer               USES _TSCR1 _TSCR2 _TFLG2 
 BenchmarkII               USES _CASE_CHECKED_BYTE BenchmarkII _ILSEXT _DSFLOAT 
                                 sin cos sqrt _TCNT 
@@ -2103,12 +2108,32 @@ DEPENDENCY TREE
  |     | 
  |     +- enableTimer         
  |     |    
+ |     +- _DMUL               
+ |     |  | 
+ |     |  +- D_PULK              
+ |     |  |    
+ |     |  +- D_PULL              
+ |     |  |    
+ |     |  +- D_MULKL             
+ |     |  |  | 
+ |     |  |  +- D_CLRK              
+ |     |  |  |    
+ |     |  |  +- D_NORMK             
+ |     |  |     | 
+ |     |  |     +- D_CLRK               (see above)
+ |     |  |     |  
+ |     |  |     +- D_MAXK              
+ |     |  |        | 
+ |     |  |        +- D_CLRK               (see above)
+ |     |  |           
+ |     |  +- D_PSHK              
+ |     |       
  |     +- BenchmarkTable      
  |     |  | 
  |     |  +- _DSTRUNC            
  |     |  |  | 
- |     |  |  +- D_PULL              
- |     |  |  |    
+ |     |  |  +- D_PULL               (see above)
+ |     |  |  |  
  |     |  |  +- D_TOLONGK           
  |     |  |  |    
  |     |  |  +- L_PSHK              
@@ -2157,38 +2182,20 @@ DEPENDENCY TREE
  |     |  |  |     | 
  |     |  |  |     +- _DADD               
  |     |  |  |     |  | 
- |     |  |  |     |  +- D_PULK              
- |     |  |  |     |  |    
+ |     |  |  |     |  +- D_PULK               (see above)
+ |     |  |  |     |  |  
  |     |  |  |     |  +- D_PULL               (see above)
  |     |  |  |     |  |  
  |     |  |  |     |  +- D_ADDKL             
  |     |  |  |     |  |  | 
  |     |  |  |     |  |  +- D_XGKL              
  |     |  |  |     |  |  |    
- |     |  |  |     |  |  +- D_NORMK             
- |     |  |  |     |  |     | 
- |     |  |  |     |  |     +- D_CLRK              
- |     |  |  |     |  |     |    
- |     |  |  |     |  |     +- D_MAXK              
- |     |  |  |     |  |        | 
- |     |  |  |     |  |        +- D_CLRK               (see above)
- |     |  |  |     |  |           
- |     |  |  |     |  +- D_PSHK              
- |     |  |  |     |       
- |     |  |  |     +- _DMUL               
- |     |  |  |     |  | 
- |     |  |  |     |  +- D_PULK               (see above)
- |     |  |  |     |  |  
- |     |  |  |     |  +- D_PULL               (see above)
- |     |  |  |     |  |  
- |     |  |  |     |  +- D_MULKL             
- |     |  |  |     |  |  | 
- |     |  |  |     |  |  +- D_CLRK               (see above)
- |     |  |  |     |  |  |  
  |     |  |  |     |  |  +- D_NORMK              (see above)
  |     |  |  |     |  |     
  |     |  |  |     |  +- D_PSHK               (see above)
  |     |  |  |     |     
+ |     |  |  |     +- _DMUL                (see above)
+ |     |  |  |     |  
  |     |  |  |     +- modf                
  |     |  |  |     |  | 
  |     |  |  |     |  +- D_PULK               (see above)
@@ -2332,5 +2339,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 6
-Total size of all blocks to be downloaded: 5018
+Total size of all blocks to be downloaded: 5050
 
