@@ -3,9 +3,9 @@
 *MTRX 2700 S1 2021 Lab 2 Thursday 9am Group 6 Repo*
 
 ## Group Members
-Daniel Cook : 490394414
-Andy Scott : 500443844
-James Cal: 480368784
+Daniel Cook : 490394414 : Exercise 1
+James Cal: 480368784 : Exercise 2
+Andy Scott : 500443844 : Exercise 3
 
 
 ## Summary
